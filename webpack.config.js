@@ -1,4 +1,3 @@
-// entry -> output
 const path = require('path');
 
 module.exports = {
@@ -12,6 +11,13 @@ module.exports = {
       loader: 'babel-loader',
       test: /\.js$/,
       exclude: /node_modules/
+    }, {
+      test: /\.s?css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
     }]
   },
   devtool: 'cheap-module-eval-source-map',
@@ -20,4 +26,4 @@ module.exports = {
   }
 };
 
-// loader -how a file gets transformed when webpack uses it by using babel
+// loader - how a file gets transformed when webpack uses it by using babel
