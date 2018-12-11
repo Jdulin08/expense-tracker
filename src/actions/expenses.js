@@ -38,3 +38,30 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+//Set_Expenses
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses
+});
+
+//Start_Set_Expenses
+//1. Fetech all expenses data once
+//2. Parse data into array
+//3. Dispath SET_EXPENSES
+export const startSetExpenses = (expenses) => {
+  return (dispatch) => {
+    return database.ref('expenses').once('value').then((snapshot) => {
+      const expenses = [];
+
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+
+      dispatch(setExpenses(expenses));
+    });
+  };
+};
