@@ -48,6 +48,19 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
+
+// const db = {
+//   users: {
+//     uidsad: {
+//       expenses: {
+//         asdasf: {
+//
+//         }
+//       }
+//     }
+//   }
+// };
+
 // Practice methods
 // const Layout = (props) => {
 //   return (
